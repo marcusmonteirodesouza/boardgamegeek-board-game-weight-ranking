@@ -1,0 +1,16 @@
+{
+  "name": "boardgamegeek-board-game-complexity-ranking",
+  "version": "1.0.0",
+  "description": "Ranking the board games at https://boardgamegeek.com by complexity.",
+  "scripts": {
+    "format": "prettier --write .",
+    "start": "serve"
+  },
+  "keywords": [],
+  "author": "Marcus Vinicius Monteiro de Souza",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.8.3",
+    "serve": "^14.2.0"
+  }
+}
