@@ -1,3 +1,3 @@
-# Board Game Geek - Game Complexity Ranking
+# Board Game Geek - Board Game Weight Ranking
 
-Ranking the board games at https://boardgamegeek.com by complexity.
+Displays Board Game Geek's hot board games ranked by weight (complexity).
