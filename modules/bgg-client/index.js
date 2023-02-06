@@ -1,1 +1,1 @@
-export * from "./bgg-client.js";
+export * from './bgg-client.js';
