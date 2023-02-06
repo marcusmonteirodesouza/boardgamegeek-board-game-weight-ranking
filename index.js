@@ -32,8 +32,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     thumbnailCell.appendChild(thumbnailNode);
 
     const nameCell = newRow.insertCell();
-    const nameNode = document.createTextNode(boardGame.name);
+    const nameNode = document.createElement('div');
+    nameNode.textContent = boardGame.name;
+    nameNode.className = 'has-text-weight-medium';
     nameCell.appendChild(nameNode);
+
+    const averageWeightCell = newRow.insertCell();
+    const averageWeightNode = document.createElement('div');
+    averageWeightNode.textContent = boardGame.statistics.averageweight;
+    averageWeightNode.className = 'has-text-weight-semibold';
+    averageWeightCell.appendChild(averageWeightNode);
+
+    const numWeightsCell = newRow.insertCell();
+    const numWeightsNode = document.createTextNode(
+      boardGame.statistics.numweights
+    );
+    numWeightsCell.appendChild(numWeightsNode);
 
     const descriptionCell = newRow.insertCell();
     const descriptionNode = document.createElement('div');
@@ -49,17 +63,5 @@ document.addEventListener('DOMContentLoaded', async () => {
       boardGame.statistics.ranks.find((rank) => rank.name === 'boardgame').value
     );
     rankCell.appendChild(rankNode);
-
-    const averageWeightCell = newRow.insertCell();
-    const averageWeightNode = document.createTextNode(
-      boardGame.statistics.averageweight
-    );
-    averageWeightCell.appendChild(averageWeightNode);
-
-    const numWeightsCell = newRow.insertCell();
-    const numWeightsNode = document.createTextNode(
-      boardGame.statistics.numweights
-    );
-    numWeightsCell.appendChild(numWeightsNode);
   }
 });
