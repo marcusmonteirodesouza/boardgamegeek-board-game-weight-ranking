@@ -1,5 +1,5 @@
 name: BGG Data Mine
-run-name: Update BGG data mining datasets
+run-name: Updates BGG data mining datasets
 on:
   schedule:
     - cron: '0 0 1 * *' # every month
@@ -18,4 +18,10 @@ jobs:
       - run: npm run bgg-data-mine
       - uses: peter-evans/create-pull-request@v4
         with:
+          title: 'BGG Data Mine update'
           delete-branch: true
+          labels: |
+            bgg-data-mine
+            automated pr
+          assignees: marcusmonteirodesouza
+          reviewers: marcusmonteirodesouza
