@@ -119,7 +119,7 @@ class BGGClient {
    * @returns An array of board games IDs
    */
   async getBoardGamesIdsByRank() {
-    const url = '/bgg-data-mining/results/board-games-ids-by-rank.json';
+    const url = 'https://raw.githubusercontent.com/marcusmonteirodesouza/boardgamegeek-board-game-weight-ranking/main/bgg-data-mining/results/board-games-ids-by-rank.json';
 
     const response = await fetch(url);
 
