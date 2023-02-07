@@ -1,6 +1,9 @@
 name: BGG Data Mine
 run-name: Update BGG data mining datasets
-on: [push]
+on:
+  schedule:
+    - cron: '0 0 1 * *' # every month
+  workflow_dispatch:
 jobs:
   BGG-Data-Mine:
     runs-on: ubuntu-latest
