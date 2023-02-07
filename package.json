@@ -4,7 +4,7 @@
   "description": "Ranking the board games at https://boardgamegeek.com by complexity.",
   "scripts": {
     "format": "prettier --write . && cd bgg-data-mining && make format",
-    "bgg-data-mine": "cd bgg-data-mining && make run",
+    "bgg-data-mine": "cd bgg-data-mining && make update && make run && npm run format",
     "start": "serve"
   },
   "keywords": [],
