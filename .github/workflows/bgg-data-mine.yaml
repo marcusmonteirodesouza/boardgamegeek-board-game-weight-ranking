@@ -1,0 +1,16 @@
+name: BGG Data Mine
+run-name: Run BGG Data Mine to update datasets
+on: [push]
+jobs:
+  BGG-Data-Mine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - uses: abatilo/actions-poetry@v2
+      - run: npm run bgg-data-mine
+      - run: npm run format
+      - uses: peter-evans/create-pull-request@v4
