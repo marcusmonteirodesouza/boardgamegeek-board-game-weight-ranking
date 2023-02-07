@@ -1,7 +1,7 @@
 {
   "name": "boardgamegeek-board-game-complexity-ranking",
   "version": "1.0.0",
-  "description": "Ranking the board games at https://boardgamegeek.com by complexity.",
+  "description": "Displays Board Game Geek's board games, ranked by weight (complexity).",
   "scripts": {
     "format": "prettier --write . && cd bgg-data-mining && make format",
     "bgg-data-mine": "cd bgg-data-mining && make update && make run && npm run format",

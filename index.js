@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     },
   ]);
 
-  const hotBoardGamesWeightRankingTableBody = document
-    .getElementById('hot-board-games-weight-ranking-table')
+  const boardGamesWeightRankingTableBody = document
+    .getElementById('board-games-weight-ranking-table')
     .querySelector('tbody');
 
   for (const boardGame of boardGamesSortedByWeight) {
-    const newRow = hotBoardGamesWeightRankingTableBody.insertRow();
+    const newRow = boardGamesWeightRankingTableBody.insertRow();
 
     const thumbnailCell = newRow.insertCell();
     const thumbnailNode = document.createElement('img');
