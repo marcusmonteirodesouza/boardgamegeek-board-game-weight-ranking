@@ -20,11 +20,9 @@ class BGGClient:
                 board_game_details_href = board_game_name_node.find("a")[0].attrs[
                     "href"
                 ]
-                board_game_id = int(
-                    re.findall(r"boardgame/\d+", board_game_details_href)[0].split("/")[
-                        1
-                    ]
-                )
+                board_game_id = re.findall(r"boardgame/\d+", board_game_details_href)[
+                    0
+                ].split("/")[1]
                 board_games_ids.append(board_game_id)
 
         return board_games_ids
