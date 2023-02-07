@@ -43,13 +43,13 @@
   td:nth-of-type(4):before {
     content: 'Num Weights';
   }
-  td:nth-of-type(5):before {
-    content: 'Description';
+  td:nth-of-type(7):before {
+    content: 'Rank';
   }
   td:nth-of-type(6):before {
     content: 'Year Published';
   }
-  td:nth-of-type(7):before {
-    content: 'Rank';
+  td:nth-of-type(5):before {
+    content: 'Description';
   }
 }

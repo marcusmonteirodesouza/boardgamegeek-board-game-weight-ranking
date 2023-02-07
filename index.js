@@ -45,19 +45,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     );
     numWeightsCell.appendChild(numWeightsNode);
 
-    const descriptionCell = newRow.insertCell();
-    const descriptionNode = document.createElement('div');
-    descriptionNode.innerHTML = boardGame.description;
-    descriptionCell.appendChild(descriptionNode);
-
-    const yearPublishedCell = newRow.insertCell();
-    const yearPublishedNode = document.createTextNode(boardGame.yearpublished);
-    yearPublishedCell.appendChild(yearPublishedNode);
-
     const rankCell = newRow.insertCell();
     const rankNode = document.createTextNode(
       boardGame.statistics.ranks.find((rank) => rank.name === 'boardgame').value
     );
     rankCell.appendChild(rankNode);
+
+    const yearPublishedCell = newRow.insertCell();
+    const yearPublishedNode = document.createTextNode(boardGame.yearpublished);
+    yearPublishedCell.appendChild(yearPublishedNode);
+
+    const descriptionCell = newRow.insertCell();
+    const descriptionNode = document.createElement('div');
+    descriptionNode.innerHTML = boardGame.description;
+    descriptionCell.appendChild(descriptionNode);
   }
 });
