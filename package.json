@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Ranking the board games at https://boardgamegeek.com by complexity.",
   "scripts": {
-    "format": "prettier --write .",
+    "format": "prettier --write . && cd bgg-data-mining && make format",
+    "bgg-data-mine": "cd bgg-data-mining && make run",
     "start": "serve"
   },
   "keywords": [],

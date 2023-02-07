@@ -8,29 +8,19 @@ const ThingTypeEnum = Object.freeze({
   BoardGame: new ThingType('boardgame'),
 });
 
-class HotItemType {
-  constructor(name) {
-    this.name = name;
-  }
-}
-
-const HotItemTypeEnum = Object.freeze({
-  BoardGame: new HotItemType('boardgame'),
-});
-
 /**
  * Board Game Geek Client. See https://boardgamegeek.com/wiki/page/BGG_XML_API2
  */
 class BGGClient {
-  #baseUrl = 'https://boardgamegeek.com/xmlapi2';
+  #baseApiUrl = 'https://boardgamegeek.com/xmlapi2';
   #parser = new DOMParser();
 
   /**
-   *
+   * Get Things' details from Board Game Geek
    * @param {Object} params
    */
   async getThingItems(params) {
-    const url = new URL(`${this.#baseUrl}/thing`);
+    const url = new URL(`${this.#baseApiUrl}/thing`);
 
     if (params.ids && params.ids.length > 0) {
       url.searchParams.append('id', params.ids.join(','));
@@ -125,51 +115,20 @@ class BGGClient {
   }
 
   /**
-   * Retrieve the list of most active items on the BGG site.
-   * @param {HotItemType} type
+   * Gets the ids of the top-ranked board games in Board Game Geek
+   * @returns An array of board games IDs
    */
-  async getHotItems(type) {
-    const url = `${this.#baseUrl}/hot?${type.name}`;
+  async getBoardGamesIdsByRank() {
+    const url = '/bgg-data-mining/results/board-games-ids-by-rank.json';
 
     const response = await fetch(url);
 
-    const xmlStr = await response.text();
+    const data = await response.json();
 
-    const xmlDoc = this.#parser.parseFromString(xmlStr, 'application/xml');
-
-    const items = Array.from(xmlDoc.querySelectorAll('item'), (itemNode) => {
-      const id = itemNode.getAttribute('id');
-
-      const rank =
-        itemNode.getAttribute('rank') === 'Not Ranked'
-          ? null
-          : Number.parseInt(itemNode.getAttribute('rank'));
-
-      const thumbnail = itemNode
-        .querySelector('thumbnail')
-        .getAttribute('value');
-
-      const name = itemNode.querySelector('name').getAttribute('value');
-
-      const yearpublished = Number.parseInt(
-        itemNode.querySelector('yearpublished').getAttribute('value')
-      );
-
-      const item = {
-        id,
-        rank,
-        thumbnail,
-        name,
-        yearpublished,
-      };
-
-      return item;
-    });
-
-    return items;
+    return data;
   }
 }
 
 const bggClient = new BGGClient();
 
-export { bggClient, ThingTypeEnum, HotItemTypeEnum };
+export { bggClient, ThingTypeEnum };

@@ -1,14 +1,10 @@
-import {
-  bggClient,
-  HotItemTypeEnum,
-  ThingTypeEnum,
-} from './modules/bgg-client/index.js';
+import { bggClient, ThingTypeEnum } from './modules/bgg-client/index.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const hotBoardGames = await bggClient.getHotItems(HotItemTypeEnum.BoardGame);
+  const boardGamesIdsByRank = await bggClient.getBoardGamesIdsByRank();
 
   const boardGames = await bggClient.getThingItems({
-    ids: hotBoardGames.map((item) => item.id),
+    ids: boardGamesIdsByRank,
     thingTypes: [ThingTypeEnum.BoardGame],
     stats: true,
   });
